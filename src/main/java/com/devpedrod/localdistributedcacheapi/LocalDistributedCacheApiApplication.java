@@ -1,0 +1,13 @@
+package com.devpedrod.localdistributedcacheapi;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class LocalDistributedCacheApiApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(LocalDistributedCacheApiApplication.class, args);
+	}
+
+}
