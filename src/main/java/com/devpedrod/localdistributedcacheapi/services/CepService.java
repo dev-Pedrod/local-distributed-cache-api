@@ -19,7 +19,8 @@ public class CepService {
 
     public Mono<CepResponse> findByCep(String cep) {
         return viaCepClient
-                .findByCep(cep).flatMap(this::handleResponse);
+                .findByCep(cep)
+                .flatMap(this::handleResponse);
     }
 
     private Mono<CepResponse> handleResponse(String response) {
