@@ -16,10 +16,21 @@ public class CepService {
     private ViaCepClient viaCepClient;
     @Autowired
     private ObjectMapper objectMapper;
+    @Autowired
+    private CacheServiceWrapper cacheServiceWrapper;
 
     public Mono<CepResponse> findByCep(String cep) {
-        return viaCepClient
-                .findByCep(cep)
+        return cacheServiceWrapper
+                .exists(cep)
+                .flatMap(exists -> {
+                    if(exists){
+                        return cacheServiceWrapper.get(cep);
+                    } else {
+                        return viaCepClient
+                                .findByCep(cep)
+                                .flatMap(response -> cacheServiceWrapper.save(cep, response));
+                    }
+                })
                 .flatMap(this::handleResponse);
     }
 

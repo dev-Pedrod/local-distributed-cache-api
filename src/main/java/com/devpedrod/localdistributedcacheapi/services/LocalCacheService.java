@@ -64,7 +64,7 @@ public class LocalCacheService {
 
         keysToRemove.forEach(CACHE::remove);
         if (!keysToRemove.isEmpty()) {
-            log.info("{} chaves removidas", keysToRemove.size());
+            log.info("{} chave(s) removidas: {}", keysToRemove.size(), keysToRemove);
         }
     }
 
