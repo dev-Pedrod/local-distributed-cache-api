@@ -16,3 +16,7 @@ Here are the technologies used in this project.
 ![image](https://user-images.githubusercontent.com/86006066/177316019-620cc6e2-e520-418a-a18b-b25829a54f03.png)
 #### Second request
 ![image](https://user-images.githubusercontent.com/86006066/177315788-0c4fd371-77d9-4760-a4c9-e6748731478d.png)
+
+---
+
+By dev-Pedrod  [*See my Linkedin*](https://www.linkedin.com/in/pedrooliveiradev/)
