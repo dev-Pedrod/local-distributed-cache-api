@@ -10,27 +10,29 @@ public class CacheServiceWrapper {
 
     @Autowired
     private LocalCacheService localCacheService;
+    @Autowired
+    private RedisCacheService redisCacheService;
 
     @Value("${app-config.cache.redis-enabled}")
     private Boolean redisEnabled;
 
     public Mono<String> get(String key){
         if(redisEnabled){
-            return Mono.empty();
+            return redisCacheService.get(key);
         }
         return localCacheService.get(key);
     }
 
     public Mono<Boolean> exists(String key){
         if(redisEnabled){
-            return Mono.just(Boolean.FALSE);
+            return redisCacheService.existsForKey(key);
         }
         return localCacheService.existsForKey(key);
     }
 
     public Mono<String> save(String key, String value){
         if(redisEnabled){
-            return Mono.empty();
+            return redisCacheService.save(key, value);
         }
         return localCacheService.save(key, value);
     }
